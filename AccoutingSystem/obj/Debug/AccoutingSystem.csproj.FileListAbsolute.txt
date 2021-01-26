@@ -1,0 +1,12 @@
+C:\Users\THUSITH\Documents\Visual Studio 2013\Projects\AccoutingSystem\AccoutingSystem\bin\AccoutingSystem.dll.config
+C:\Users\THUSITH\Documents\Visual Studio 2013\Projects\AccoutingSystem\AccoutingSystem\bin\AccoutingSystem.dll
+C:\Users\THUSITH\Documents\Visual Studio 2013\Projects\AccoutingSystem\AccoutingSystem\bin\AccoutingSystem.pdb
+C:\Users\THUSITH\Documents\Visual Studio 2013\Projects\AccoutingSystem\AccoutingSystem\obj\Debug\AccoutingSystem.csprojResolveAssemblyReference.cache
+C:\Users\THUSITH\Documents\Visual Studio 2013\Projects\AccoutingSystem\AccoutingSystem\obj\Debug\AccoutingSystem.dll
+C:\Users\THUSITH\Documents\Visual Studio 2013\Projects\AccoutingSystem\AccoutingSystem\obj\Debug\AccoutingSystem.pdb
+C:\Users\GAMING PC\Documents\GitHub\Accounting-System\AccoutingSystem\bin\AccoutingSystem.dll.config
+C:\Users\GAMING PC\Documents\GitHub\Accounting-System\AccoutingSystem\bin\AccoutingSystem.dll
+C:\Users\GAMING PC\Documents\GitHub\Accounting-System\AccoutingSystem\bin\AccoutingSystem.pdb
+C:\Users\GAMING PC\Documents\GitHub\Accounting-System\AccoutingSystem\obj\Debug\AccoutingSystem.csprojResolveAssemblyReference.cache
+C:\Users\GAMING PC\Documents\GitHub\Accounting-System\AccoutingSystem\obj\Debug\AccoutingSystem.dll
+C:\Users\GAMING PC\Documents\GitHub\Accounting-System\AccoutingSystem\obj\Debug\AccoutingSystem.pdb
