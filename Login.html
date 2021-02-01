@@ -2,18 +2,18 @@
 
 <head>
     <title></title>
-	<meta charset="utf-8" />
+    <meta charset="utf-8" />
 
 
-    
+
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
     <!--Fontawesome CDN-->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link rel="stylesheet" href="dist/css/Login.css">
 
 
-
- <style>
+    <!-- <style>
 
         @import url('https://fonts.googleapis.com/css?family=Numans');
 
@@ -105,10 +105,11 @@ margin-left: 4px;
 
 
 
-    </style>
+    </style> -->
 
 
 </head>
+
 <body>
 
     <div class="container">
@@ -128,20 +129,20 @@ margin-left: 4px;
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fas fa-user"></i></span>
                             </div>
-                            <input type="text" class="form-control" placeholder="username">
+                            <input type="text" class="form-control" placeholder="username" id="username">
 
                         </div>
                         <div class="input-group form-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fas fa-key"></i></span>
                             </div>
-                            <input type="password" class="form-control" placeholder="password">
+                            <input type="password" class="form-control" placeholder="password" id="password">
                         </div>
                         <div class="row align-items-center remember">
                             <input type="checkbox">Remember Me
                         </div>
                         <div class="form-group">
-                            <input type="button" id="Login" onclick="myFunction()" value="Login" class="btn float-right login_btn">
+                            <input type="button" id="Login" value="Sign in" class="btn float-right login_btn">
 
 
                         </div>
@@ -159,21 +160,121 @@ margin-left: 4px;
         </div>
     </div>
 
+    <!--Common-->
+    <div class="modal fade" id="modal-msgbox">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title"></h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p class="modal-body-content"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modal-confirmbox">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title"></h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p class="modal-body-content"></p>
+                </div>
+                <div class="modal-footer justify-content-between">
+                    <button type="button" class="btn btn-default modal-confirmbox-buttons">No</button>
+                    <button type="button" class="btn btn-primary modal-confirmbox-buttons">Yes, I'm sure</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Common-->
+
 </body>
+<script src="plugins/jquery/jquery.min.js"></script>
+<script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+
 </html>
+
+
+<script>
+    $("#Login").click(function() {
+
+
+        if ($('#username').val() == '') {
+
+            toggle_msgbox01(' ', 'Please Enter username ');
+            return;
+        }
+
+        if ($('#password').val() == '') {
+            toggle_msgbox01(' ', 'Please Enter Password ');
+            return;
+        }
+
+
+        var person = new Object();
+        var Username = $("#username").val();
+        var Password = $("#password").val();
+        $.ajax({
+            url: 'http://localhost:43089/api/first/register',
+            type: 'POST',
+            dataType: 'json',
+            data: {
+                Username: Username,
+                Password: Password
+            },
+            success: function(data) {
+
+                if (data.Msg == "OK") {
+
+                    myFunction();
+                }
+            },
+            error: function(xhr, textStatus, errorThrown) {
+                console.log('Error in Operation');
+            }
+        });
+    });
+
+
+    //Common
+    function toggle_msgbox01(title, body) {
+        $('#modal-msgbox .modal-title').text(title);
+        $('#modal-msgbox .modal-body-content').text(body);
+        $('#modal-msgbox').modal('toggle');
+    }
+
+    var confirmbox01_callback;
+
+    function toggle_confirmbox01(title, body, callback) {
+        $('#modal-confirmbox .modal-title').text(title);
+        $('#modal-confirmbox .modal-body-content').text(body);
+        confirmbox01_callback = callback;
+        $('#modal-confirmbox').modal('toggle');
+    }
+
+    $(document).on('click', '.modal-confirmbox-buttons', function() {
+        $('#modal-confirmbox').modal('hide');
+        if ($(this).text().trim() != 'No') {
+            confirmbox01_callback(true);
+        } else {
+            confirmbox01_callback(false);
+        }
+    });
+    //Common
+</script>
 
 <script>
     function myFunction() {
-      location.replace("http://localhost/AccountingSystem/");
+        location.replace("index3.html");
     }
-    </script>
-
-<script>
-    $(document).ready(function(){
-      $("Login").click(function(){
-          alert('asd');
-        myFunction();
-      });
-    });
-    </script>
-    
+</script>
