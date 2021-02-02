@@ -150,10 +150,10 @@ margin-left: 4px;
                 </div>
                 <div class="card-footer">
                     <div class="d-flex justify-content-center links">
-                        <a href="#">Sign Up</a>
+                        <!-- <a href="#">Sign Up</a> -->
                     </div>
                     <div class="d-flex justify-content-center">
-                        <a href="#"> </a>
+                        <label id="lblMessage" for="exampleInputEmail1"> </label>
                     </div>
                 </div>
             </div>
@@ -238,6 +238,11 @@ margin-left: 4px;
 
                     myFunction();
                 }
+                else{
+                    $('#lblMessage').html(data.msgdesc);
+                    $.session.set("Login", data.name);
+                }
+
             },
             error: function(xhr, textStatus, errorThrown) {
                 console.log('Error in Operation');
