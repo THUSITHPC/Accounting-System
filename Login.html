@@ -116,8 +116,11 @@ margin-left: 4px;
         <div class="d-flex justify-content-center h-100">
             <div class="card">
                 <div class="card-header">
-                    <h3>Sign In</h3>
+                    <h1 id="lblCompanyName" style="font-size: large; font-weight: bold; " > </h1>        
+                    <h2 style="font-size: medium; font-family: 'Times New Roman', Times, serif; font-weight: bold; " >Local Government Account Portal</h2>
+                    <h3 style="font-size: large;" >Sign In</h3>
                     <div class="d-flex justify-content-end social_icon">
+                        <!-- <img height="40%" width="50%" src="dist/img/Logo.png" alt="Italian Trulli"> -->
                         <!-- <span><i class="fab fa-facebook-square"></i></span>
                         <span><i class="fab fa-google-plus-square"></i></span>
                         <span><i class="fab fa-twitter-square"></i></span> -->
@@ -144,16 +147,20 @@ margin-left: 4px;
                         <div class="form-group">
                             <input type="button" id="Login" value="Sign in" class="btn float-right login_btn">
 
-
                         </div>
+
+                        <div class="row align-items-center remember">
+                            <label id="lblMessage" style="color: darkturquoise;" for="exampleInputEmail1"> </label>
+                        </div>
+
                     </form>
                 </div>
                 <div class="card-footer">
-                    <div class="d-flex justify-content-center links">
-                        <!-- <a href="#">Sign Up</a> -->
+                    <div id="lblVersion" class="d-flex justify-content-center links">
+                        <a style="color: gold;" href="#"> </a>
                     </div>
                     <div class="d-flex justify-content-center">
-                        <label id="lblMessage" for="exampleInputEmail1"> </label>
+                        
                     </div>
                 </div>
             </div>
@@ -201,6 +208,7 @@ margin-left: 4px;
 </body>
 <script src="plugins/jquery/jquery.min.js"></script>
 <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="dist/js/Common.js"></script>
 
 </html>
 
@@ -211,12 +219,14 @@ margin-left: 4px;
 
         if ($('#username').val() == '') {
 
-            toggle_msgbox01(' ', 'Please Enter username ');
+            // toggle_msgbox01(' ', 'Please Enter username ');
+            $('#lblMessage').html('Please Enter Username');
             return;
         }
 
         if ($('#password').val() == '') {
-            toggle_msgbox01(' ', 'Please Enter Password ');
+            // toggle_msgbox01(' ', 'Please Enter Password ');
+            $('#lblMessage').html('Please Enter Password');
             return;
         }
 
