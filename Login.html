@@ -236,11 +236,10 @@ margin-left: 4px;
 
                 if (data.Msg == "OK") {
 
+                    sessionStorage.setItem("lastname", data.name);
                     myFunction();
-                }
-                else{
+                } else {
                     $('#lblMessage').html(data.msgdesc);
-                    $.session.set("Login", data.name);
                 }
 
             },
